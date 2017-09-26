@@ -1,5 +1,7 @@
 // Henkilö-luokka
 
+// nönnönnöö
+
 public class Henkilo {
     
   // Muuttujat:
