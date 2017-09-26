@@ -10,16 +10,18 @@ package hsl_simulaatio;
 public class HSL_tili {
     private double arvo;
     private int alueKoodi; // vastaa kaupunkeja ja vyöhykkeitä
-    private int kausi; 
+    private int kausi;
+    private int asiakaskunta; // esim 0 = lapsi, 1 = opiskelija jne..
     
     HSL_tili(){
         
     }
     
-    HSL_tili(double arvo, int alue, int kausi){
+    HSL_tili(double arvo, int alue, int kausi, int asiakas){
         this.arvo = arvo;
         this.alueKoodi = alue;
         this.kausi = kausi;
+        this.asiakaskunta = asiakas;
     }
     
     public void setArvo(double arvo){
@@ -38,6 +40,11 @@ public class HSL_tili {
         // setteri, joka kertoo kuinka monta päivää (int) kautta 
     }
     
+    public void setAsiakaskunta(int asiakas){
+        this.asiakaskunta = asiakas;
+        // asettaa asiakaskuntaa vastaavan kokonaisluvun
+    }
+    
     public double getArvo(){
         return this.arvo;
         // palauttaa arvon
@@ -51,6 +58,11 @@ public class HSL_tili {
     public int getKausi(){
         return this.kausi;
         // palauttaa kauden keston päivinä
+    }
+    
+    public int getAsiakaskunta(){
+        return this.asiakaskunta;
+        // palauttaa asiakaskunnan
     }
     
 }
