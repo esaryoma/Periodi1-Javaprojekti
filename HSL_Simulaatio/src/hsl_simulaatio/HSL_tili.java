@@ -10,14 +10,16 @@ package hsl_simulaatio;
 public class HSL_tili {
     private double arvo;
     private int alueKoodi;
+    private int kausi;
     
     HSL_tili(){
         
     }
     
-    HSL_tili(double arvo, int alue){
+    HSL_tili(double arvo, int alue, int kausi){
         this.arvo = arvo;
         this.alueKoodi = alue;
+        this.kausi = kausi;
     }
     
     public void setArvo(double arvo){
@@ -29,7 +31,7 @@ public class HSL_tili {
         this.alueKoodi = alueKoodi;
     }
     
-        public void setKausi(int kausi){
+    public void setKausi(int kausi){
         this.kausi = kausi;
     }
     
