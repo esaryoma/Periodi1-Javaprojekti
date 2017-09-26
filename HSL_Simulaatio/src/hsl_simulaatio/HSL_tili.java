@@ -29,4 +29,20 @@ public class HSL_tili {
         this.alueKoodi = alueKoodi;
     }
     
+        public void setKausi(int kausi){
+        this.kausi = kausi;
+    }
+    
+    public double getArvo(){
+        return this.arvo;
+    }
+    
+    public int getAlue(){
+        return this.alueKoodi;
+    }
+    
+    public int getKausi(){
+        return this.kausi;
+    }
+    
 }
