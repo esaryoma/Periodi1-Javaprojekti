@@ -6,10 +6,27 @@ Tänne laitetaan tietoja, kuten:
  */
 package hsl_simulaatio;
 
-/**
- *
- * @author Jerry Salonen
- */
+
 public class HSL_tili {
+    private double arvo;
+    private int alueKoodi;
+    
+    HSL_tili(){
+        
+    }
+    
+    HSL_tili(double arvo, int alue){
+        this.arvo = arvo;
+        this.alueKoodi = alue;
+    }
+    
+    public void setArvo(double arvo){
+        this.arvo = arvo;
+    }
+    
+    public void setAlue(int alueKoodi){
+        // myöhemmin katsotaan täsmääkö aluekoodi alueiden kanssa
+        this.alueKoodi = alueKoodi;
+    }
     
 }
