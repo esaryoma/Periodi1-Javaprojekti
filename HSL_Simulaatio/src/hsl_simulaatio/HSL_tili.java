@@ -17,11 +17,12 @@ public class HSL_tili {
         
     }
     
-    HSL_tili(double arvo, int alue, int kausi, int asiakas){
+    HSL_tili(double arvo, int alue, int kausi, int asiakas, Henkilo henkilo){
         this.arvo = arvo;
         this.alueKoodi = alue;
         this.kausi = kausi;
         this.asiakaskunta = asiakas;
+        this.henkilo = henkilo;
     }
     
     public void setArvo(double arvo){
