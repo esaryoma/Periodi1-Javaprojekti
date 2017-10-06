@@ -6,7 +6,7 @@ public class HSL_kortti {
     // Kommunikoi asiakkaan HSL_tilin ja Kortinlukijan/Latauspisteen kanssa
     
     // Muuttujat
-    HSL_tili tili = new HSL_tili();
+    HSL_tili tili;
     
     
     // Parametriton konstruktori
@@ -50,6 +50,21 @@ public class HSL_kortti {
     // Lisätään tilille arvoa setArvo-metodin kautta
     public void lataa(double lisays){
         tili.setArvo(tili.getArvo() + lisays);
+    }
+    
+    // kysyy tililtä aluekoodin
+    public int tarkistaKaupunki(){ 
+        switch (tili.getAlue()){
+                case 0: 
+                    return 0;
+                case 1:
+                    return 1;
+                case 2:
+                    return 2;
+                case 3:
+                    return 3;
+        }
+        return 4;
     }
     
     // Ostoksen yhteydessä tarkistetaan onko tilillä tarpeeksi arvoa
