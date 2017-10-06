@@ -1,32 +1,28 @@
-// Henkilö-luokka
-
-// nönnönnöö
+package matkakortti;
 
 public class Henkilo {
+    private String etunimi;
+    private String sukunimi;
+    private String hetu;
+    private int asiakasluokka;
     
-  // Muuttujat:
-  private String etunimi;
-  private String sukunimi;
-  private int syntymavuosi;
-  private int syntymakuukausi;
-  private int syntymapaiva;
-  
-  
-  // Konstruktori sisältää kaikki Henkilo-luokan muuttujat parametreinä
-  Henkilo(String etunimi, String sukunimi, int syntymavuosi, int syntymakuukausi, int syntymapaiva){
-      this.etunimi = etunimi;
-      this.sukunimi = sukunimi;
-      this.syntymavuosi = syntymavuosi;
-      this.syntymakuukausi = syntymakuukausi;
-      this.syntymapaiva = syntymapaiva;
-            
-  }
-  
-  // Nollakonstruktori luo henkilö-olion oletusarvoilla
-  Henkilo (){
-      this.etunimi = M
-  }
-
-
-
-}    
+    public Henkilo(String etunimi, String sukunimi, String hetu, int asiakasluokka){
+        
+        this.etunimi = etunimi;
+        this.sukunimi = sukunimi;
+        this.hetu = hetu;
+        this.asiakasluokka = asiakasluokka;
+    }
+    public String getEtunimi() {
+        return etunimi;
+    }
+    public String getSukunimi() {
+        return sukunimi;
+    }
+    public String getHetu() {
+        return hetu;
+    }
+    public int getAsiakasluokka() {
+        return asiakasluokka;
+    }
+}
