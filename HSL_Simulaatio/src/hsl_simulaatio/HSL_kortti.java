@@ -46,6 +46,23 @@ public class HSL_kortti {
         // palauttaa asiakaskunnan
     }
     
+    // Setterit, jotka oikeastaan vaan kutsuvat kiini olevat tilin Settereitä
+    public void setArvo(double arvo){
+        tili.setArvo(arvo);
+    }
+    
+    public void setAlue(int alue){
+        tili.setAlue(alue);
+    /* 
+    0 = Helsinki, 1 = Espoo, 2 = Vantaa, 3 = Seutu
+    */
+    }
+    
+    public void setKausi(int kausi){
+        tili.setKausi(kausi);
+    // Kauden pituus vuorokausina
+    }
+    
     // Muut metodit
     // Lisätään tilille arvoa setArvo-metodin kautta
     public void lataa(double lisays){
