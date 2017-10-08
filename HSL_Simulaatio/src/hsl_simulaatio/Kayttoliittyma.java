@@ -86,7 +86,8 @@ public class Kayttoliittyma {
         valinta = JOptionPane.showOptionDialog(null, "Valinta", "Osta lippu", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, lippu_menu, lippu_menu[0]);
         return valinta;
     }
-    
-    
-    
+
+    public void virheViesti(){
+        JOptionPane.showMessageDialog(null, "Tapahtuma ei onnistunut.", null, JOptionPane.ERROR_MESSAGE);
+    }
 }
