@@ -66,4 +66,8 @@ public class HSL_tili {
         // palauttaa asiakaskunnan
     }
     
+    public void vahenna(double raha){
+        this.arvo -= raha;
+    }
+    
 }
