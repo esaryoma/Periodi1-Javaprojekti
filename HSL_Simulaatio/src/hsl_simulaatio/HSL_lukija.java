@@ -36,4 +36,9 @@ public class HSL_lukija {
             return false;
         }
     }
+    
+    public void maksu(double raha){
+        kortti.maksa(raha);
+    }
+    
 }
