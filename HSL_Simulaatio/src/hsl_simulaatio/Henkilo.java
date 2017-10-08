@@ -1,10 +1,21 @@
-package matkakortti;
+package hsl_simulaatio;
 
 public class Henkilo {
     private String etunimi;
     private String sukunimi;
     private String hetu;
     private int asiakasluokka;
+    
+    public Henkilo(){
+        
+    }
+    
+    public Henkilo(String etunimi, String sukunimi, String hetu){
+        
+        this.etunimi = etunimi;
+        this.sukunimi = sukunimi;
+        this.hetu = hetu;
+    }
     
     public Henkilo(String etunimi, String sukunimi, String hetu, int asiakasluokka){
         
@@ -13,6 +24,7 @@ public class Henkilo {
         this.hetu = hetu;
         this.asiakasluokka = asiakasluokka;
     }
+    
     public String getEtunimi() {
         return etunimi;
     }
