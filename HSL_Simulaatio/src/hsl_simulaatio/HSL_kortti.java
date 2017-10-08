@@ -90,10 +90,8 @@ public class HSL_kortti {
             return false;                
         }
         else{
-            tili.setArvo(tili.getArvo() - vahennys); // jos arvoa löytyy, vähennys tehdään
+            tili.vahenna(vahennys); // jos arvoa löytyy, vähennys tehdään
             return true;
         }    
         }
     }
-    
-
