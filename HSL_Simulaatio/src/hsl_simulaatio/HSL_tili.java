@@ -48,6 +48,16 @@ public class HSL_tili {
         // setteri, joka kertoo kuinka monta päivää (int) kautta 
     }
     
+    public void setMatkakorttiHommattu(){
+        matkakortti_hommattu = 1;
+    }
+    
+    public int getMatkakorttiHommattu(){
+        return matkakortti_hommattu;
+        // 0 = ei ole hommattu
+        // 1 = on hommattu
+    }
+    
     public void setAsiakaskunta(int asiakas){
         this.asiakaskunta = asiakas;
         // asettaa asiakaskuntaa vastaavan kokonaisluvun
