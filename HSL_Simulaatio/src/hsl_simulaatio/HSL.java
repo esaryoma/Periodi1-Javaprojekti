@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 
 public class HSL {
+    
 
     
     public static void main(String[] args) {
@@ -19,21 +20,33 @@ public class HSL {
         HSL_kontrolleri kontrolleri = new HSL_kontrolleri();
         int paa_menun_valinta; // tähän tallennetaan päämenun valinta 0/1
         HSL_tili omaTili;
+        int valinta = 0; // muuttuja menuvalinnoille pää-DO-while-loopissa
+        double lataus = 0; // muuttuja kortin latauksen väliaikaista tallentamista varten
+        HSL_kortti omaMatkakortti;
+        Latauspiste latauspiste = new Latauspiste();
+        
         
         // Pääohjelman käyttämä henkilö-ArrayList kaikista ohjelmaan tallennetuista henkilöistä
-        ArrayList<Henkilo> kayttajat = new ArrayList();
+        ArrayList<HSL_tili> kaikki_tilit = new ArrayList();
         
         // Ensin luodaan ensimmäinen henkilö
         Henkilo henkilo;
         henkilo = kayttis.luoHenkiloMenu();
-        
-        // Liitetään ensimmäinen luotu henkilö ArrayListiin
-        kayttajat.add(henkilo); 
+         
         
         // Käytetään setterit tarpeellisiin classeihin, jotta liitetään henkilö näihin
         kayttis.setHenkilo(henkilo);
-        omaTili = new HSL_tili();
         
+        // Uuden tilin luominen vaatii arvot:
+        // HSL_tili(double rahaa tilillä euroina, int aluekoodi, int kauden pituus päivinä, int asiakasluokka, henkilö-olio)
+        omaTili = new HSL_tili(0, 0, 0, henkilo.getAsiakasluokka(), henkilo);
+            // Luodaan uusi tili, jolla on 0 euroa, oletus-aluekoodi, ei kautta, ja käyttäjän syöttämä Asiakasluokka, sekä henkilötiedot
+        
+        // Isketään tili valmiiksi kiinni omaMatkakortti-olioon, mutta tilin matkakortti_hommattu muuttuja on edelleen 0 (korttia ei ole hommattu)
+        omaMatkakortti = new HSL_kortti(omaTili);
+        
+        // Luodaan ArrayList, joka sisältää kaikki ohjelmalla tehdyt tilit tietoineen    
+        kaikki_tilit.add(omaTili);
         
         
         // Kutsutaan päämenu.
@@ -48,25 +61,46 @@ public class HSL {
         paa_menun_valinta = kayttis.paaMenu();
         
             switch (paa_menun_valinta){
-                case 0: kayttis.latauspisteMenu();
-                    // Palauttaa arvon 0, jos valittu Lataa kortille arvoa
-                    // Palauttaa arvon 1, jos valittu Lataa kortile kautta
-                     // Palauttaa arvon 2, jos valittu Peruuta
+                // PÄÄMENU --> LATAUSPISTEMENU
+                case 0: 
+                    // Jos tilillä ei vielä ole matkakortti, latauspisteelle ei pääse
+                    if(omaTili.getMatkakorttiHommattu() != 1){
+                        JOptionPane.showMessageDialog(null, "Sinulla ei vielä ole matkakorttia, jota ladata! Hanki matkakortti!");
+                    }
+                    else{
+                        // Syötetään latauspisteelle käyttäjän matkakortti.
+                        // teeValinta() palauttaa nyt muokatun Matkakortti-olion, joka syötetään käyttäjän matkakorttiin
+                        omaMatkakortti = latauspiste.teeValinta(omaMatkakortti);
+                    }
+                    
+                break;
                 
-                     
-                        
-                        
-                    break;
+                // PÄÄMENU --> OSTA LIPPU
                 case 1: kayttis.ostaLippuMenu();
                 
                         
                     break;
-                case 2: kayttis.luoUusiKorttiMenu();
+                
+                //PÄÄMENU --> LUO UUSI KORTTI    
+                case 2: 
+                    if (omaTili.getMatkakorttiHommattu()== 1){
+                        kayttis.korttiOnJoOlemassa();
+                    }
+                    else 
+                        valinta = kayttis.hommaaMatkakorttiMenu();
+                        if (valinta == 0){
+                            omaTili.setMatkakorttiHommattu();
+                        }
+                      
                 
                     break;
+                
+                // PÄÄMENU --> LUO UUSI HENKILÖ
                 case 3: kayttis.luoHenkiloMenu();
                 
                     break;
+                    
+                // PÄÄMENU --> LOPETA    
                 case 4: 
                     JOptionPane.showMessageDialog(null, "Ohjelma lopetetaan.");
                     break;
