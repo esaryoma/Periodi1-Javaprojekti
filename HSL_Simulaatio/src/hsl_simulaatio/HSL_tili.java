@@ -12,6 +12,8 @@ public class HSL_tili {
     private int alueKoodi; // vastaa kaupunkeja ja vyöhykkeitä
     private int kausi;
     private int asiakaskunta; // esim 0 = lapsi, 1 = opiskelija jne..
+    private Henkilo henkilo;
+    private int matkakortti_hommattu = 0; // 0 = ei, 1 = kyllä
     
     HSL_tili(){
         
@@ -22,6 +24,11 @@ public class HSL_tili {
         this.alueKoodi = alue;
         this.kausi = kausi;
         this.asiakaskunta = asiakas;
+        this.henkilo = henkilo;
+    }
+    
+    // Setataan aktiivinen henkilö 
+    public void setHenkilo(Henkilo henkilo){
         this.henkilo = henkilo;
     }
     
