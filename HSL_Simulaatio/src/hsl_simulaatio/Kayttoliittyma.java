@@ -128,6 +128,23 @@ public class Kayttoliittyma {
         JOptionPane.showMessageDialog(null, "Tapahtuma ei onnistunut.", null, JOptionPane.ERROR_MESSAGE);
     }
     
+    public int hyvaksyHinta(HSL_kortti omaMatkakortti, HSL_lukija lukija){
+        this.omaMatkakortti = omaMatkakortti;
+        this.lukija = lukija;
+        valinta = JOptionPane.showConfirmDialog(null, "Olet " +omaMatkakortti.getAsiakaskunta() +" , joten hintasi on" +lukija.getHinta() +" OK?");
+        return valinta;
+        
+        
+    }
+    
+    // Teksti joka näkyy kun käyttäjä on ostanut bussissa lipun.
+    // Ilmoittaa lipun hinnan, ja kortilla olevan arvon.
+    public void maksunJalkeen(double hinta){
+        JOptionPane.showMessageDialog(null, "Kiitos. Lippusi maksoi " +hinta +"€.\n"
+                                            + "Arvoa jäljellä " +omaMatkakortti.getArvo() +"€.\n"
+                                            +"Hyvää matkaa! ");
+    }
+    
     public void kortinTiedot(HSL_kortti kortti){
         JOptionPane.showMessageDialog(null, "Nimi: " + kortti.getKokonimi() 
                                         + "\nArvoa: " + kortti.getArvo()+" €\nKautta jäljellä: "
