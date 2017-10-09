@@ -58,6 +58,10 @@ public class HSL_tili {
         // 1 = on hommattu
     }
     
+    public String getKokonimi(){
+        return henkilo.toString();
+    }
+    
     public void setAsiakaskunta(int asiakas){
         this.asiakaskunta = asiakas;
         // asettaa asiakaskuntaa vastaavan kokonaisluvun
