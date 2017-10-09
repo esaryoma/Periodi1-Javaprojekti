@@ -17,13 +17,14 @@ public class HSL {
         */
 
         Kayttoliittyma kayttis = new Kayttoliittyma();
-        HSL_kontrolleri kontrolleri = new HSL_kontrolleri();
         int paa_menun_valinta; // tähän tallennetaan päämenun valinta 0/1
         HSL_tili omaTili;
         int valinta = 0; // muuttuja menuvalinnoille pää-DO-while-loopissa
         double lataus = 0; // muuttuja kortin latauksen väliaikaista tallentamista varten
         HSL_kortti omaMatkakortti;
         Latauspiste latauspiste = new Latauspiste();
+        HSL_lukija lukija = new HSL_lukija();
+        Bussi bussi = new Bussi();
         
         
         // Pääohjelman käyttämä henkilö-ArrayList kaikista ohjelmaan tallennetuista henkilöistä
@@ -76,7 +77,10 @@ public class HSL {
                 break;
                 
                 // PÄÄMENU --> OSTA LIPPU
-                case 1: kayttis.ostaLippuMenu();
+                case 1: 
+                    // Bussi classista haetaan lukijalta maksutietoja riippuen
+                    // käyttäjän asiakaskunnasta etc.
+                    bussi.nouseKyytiin(omaMatkakortti);
                 
                         
                     break;

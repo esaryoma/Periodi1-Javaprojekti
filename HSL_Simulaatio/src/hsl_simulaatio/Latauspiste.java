@@ -39,17 +39,41 @@ public class Latauspiste {
                                 // 3 = Seutu
                                 // 4 = Peruuta
                                 if (valinta < 4){
-                                    omaMatkakortti.setAlue(valinta);
-                                    valinta = kayttis.kausiMenu();
-                                    omaMatkakortti.setKausi(valinta);
+                                    // Jos käyttäjä aikoo vaihtaa kauden aluetta
+                                    // häntä varoitetaan asiasta.
+/* Alueella ei väliä, jos kausi on 0*/  if (omaMatkakortti.getAlue() == valinta || omaMatkakortti.getKausi() <= 0){
+                                        omaMatkakortti.setAlue(valinta);
+                                        omaMatkakortti.setKausi(omaMatkakortti.getKausi() + kayttis.kausiMenu());
+                                    }
+                                    else {
+                                        valinta = kayttis.tuhoaKausiVaroitus();
+                                                // 0 = OK, tuhotaan vaan vanha kausi
+                                                // 1 = Ei, ei tuhota vanhaa kautta
+                                                switch(valinta){
+                                                case 0:
+                                                    omaMatkakortti.setAlue(valinta);
+                                                    valinta = kayttis.kausiMenu();
+                                                    omaMatkakortti.setKausi(valinta);
+                                                    break;
+                                                
+                                                case 1: 
+                                                    break;
+                                                }
+                                    }    
                                 }    
                         break;
                         
                         case 2:
-                        break;
+                            kayttis.kortinTiedot(omaMatkakortti);
+                            break;
+                            
                         
+                        case 3: 
+                            break;
                         default: JOptionPane.showMessageDialog(null, "Vituiks män");
                     }
+        
+        // Palautetaan pääohjelmalle muokattu Matkakortti-olio
         return omaMatkakortti;
     
     }

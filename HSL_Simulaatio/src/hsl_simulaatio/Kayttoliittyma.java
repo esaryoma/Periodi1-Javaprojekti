@@ -18,6 +18,7 @@ public class Kayttoliittyma {
     private String[] lippu_menu = new String[] {"Helsingin sisäinen", "Espoon sisäinen", "Vantaan sisäinen", "Seutu", "Peruuta"};
     private String[] luo_matkakortti_menu = new String[] {"Luo", "Peruuta"};
     private String[] asiakaskunta_menu = new String[] {"Lapsi", "Aikuinen", "Opiskelija", "Eläkeläinen"};
+    private String[] kylla_ei_menu = new String[] {"Kyllä", "Ei"};
     private int valinta;
     private Henkilo henkilo;
     private HSL_kortti omaMatkakortti;
@@ -133,10 +134,10 @@ public class Kayttoliittyma {
     public int hyvaksyHinta(HSL_kortti omaMatkakortti, HSL_lukija lukija){
         this.omaMatkakortti = omaMatkakortti;
         this.lukija = lukija;
-        valinta = JOptionPane.showConfirmDialog(null, "Olet " +omaMatkakortti.getAsiakaskunta() +" , joten hintasi on" +lukija.getHinta() +" OK?");
-        return valinta;
-        
-        
+        // Kysytaan onko hinta ok?
+        // 0 = Kyllä, 1 = Ei
+        valinta = JOptionPane.showOptionDialog(null, "Olet " +omaMatkakortti.getAsiakaskuntaStr() +" , joten hintasi on" +lukija.getHinta() +", hyväksytäänkö?", "Hyväksy maksu", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, kylla_ei_menu , kylla_ei_menu[0]);
+        return valinta;       
     }
     
     // Teksti joka näkyy kun käyttäjä on ostanut bussissa lipun.
@@ -154,4 +155,10 @@ public class Kayttoliittyma {
                                         +"\nAsiakaskunta: "+kortti.getAsiakaskuntaStr());
     }
     
+    public int tuhoaKausiVaroitus(){
+        valinta = JOptionPane.showOptionDialog(null, "Aikaisempi kautesi tuhotaan! Hyväksytkö?", "Varoitus", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE, null, kylla_ei_menu , kylla_ei_menu[0]);
+        return valinta;
+        // Palauttaa 0 = Kyllä (tuhotaan aikaisempi kausi), 1 = Ei (peruuta)
+    }
+
 }

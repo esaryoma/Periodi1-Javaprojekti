@@ -1,4 +1,3 @@
-
 package hsl_simulaatio;
 
 
@@ -40,7 +39,6 @@ public class HSL_kortti {
         return tili.getKausi();
         // palauttaa kauden keston päivinä
     }
-    
     
     public String getKokonimi (){
         return tili.getKokonimi();
@@ -84,6 +82,7 @@ public class HSL_kortti {
         tili.setArvo(arvo);
     }
     
+    
     public void setAlue(int alue){
         tili.setAlue(alue);
     /* 
@@ -123,7 +122,7 @@ public class HSL_kortti {
             return false;                
         }
         else{
-            tili.vahenna(vahennys); // jos arvoa löytyy, vähennys tehdään
+            tili.setArvo(tili.getArvo() - vahennys); // jos arvoa löytyy, vähennys tehdään
             return true;
         }    
         }
