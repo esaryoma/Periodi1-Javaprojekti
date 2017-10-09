@@ -37,4 +37,9 @@ public class Henkilo {
     public int getAsiakasluokka() {
         return asiakasluokka;
     }
+    
+    @Override
+    public String toString(){
+       return this.etunimi+" "+this.sukunimi;
+    }
 }
