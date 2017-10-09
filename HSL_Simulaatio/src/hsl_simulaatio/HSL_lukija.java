@@ -26,7 +26,11 @@ public class HSL_lukija {
         this.kaupunki = kaupunki;
     }
     
-    // setteri kaupungille
+    public void setMatkakortti(HSL_kortti matkakortti){
+        this.kortti = matkakortti;
+    }    
+
+// setteri kaupungille
     public void setKaupunki(int kaupunki){
         this.kaupunki = kaupunki;
     }
