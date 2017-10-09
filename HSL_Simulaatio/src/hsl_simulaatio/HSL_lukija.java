@@ -48,7 +48,7 @@ public class HSL_lukija {
     }
     
     // palauttaa lipun hinnan
-    public double tarkistaHinta(){
+    public double getHinta(){
         if (this.kaupunki < 3){
             switch (kortti.getAsiakaskunta()){
                 case 0: 
