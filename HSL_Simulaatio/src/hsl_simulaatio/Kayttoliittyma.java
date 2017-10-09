@@ -12,20 +12,26 @@ import javax.swing.*;
  */
 public class Kayttoliittyma {
     
-    String[] paamenu = new String[] {"Latauspiste", "Lipun osto", "Luo uusi kortti", "Lopeta ohjelman käyttö"};
-    String[] latauspiste_menu = new String[] {"Lataa kortille arvoa", "Lataa kortille kautta", "Peruuta"};
-    String[] alue_menu = new String[] {"Helsingin sisäinen", "Espoon sisäinen", "Vantaan sisäinen", "Seutu", "Peruuta"};
-    String[] lippu_menu = new String[] {"Helsingin sisäinen", "Espoon sisäinen", "Vantaan sisäinen", "Seutu", "Peruuta"};
+    private String[] paamenu = new String[] {"Latauspiste", "Lipun osto", "Hommaa matkakortti", "Luo uusi henkilö", "Lopeta ohjelman käyttö"};
+    private String[] latauspiste_menu = new String[] {"Lataa kortille arvoa", "Lataa kortille kautta", "Peruuta"};
+    private String[] alue_menu = new String[] {"Helsingin sisäinen", "Espoon sisäinen", "Vantaan sisäinen", "Seutu", "Peruuta"};
+    private String[] lippu_menu = new String[] {"Helsingin sisäinen", "Espoon sisäinen", "Vantaan sisäinen", "Seutu", "Peruuta"};
+    private String[] luo_matkakortti_menu = new String[] {"Luo", "Peruuta"};
+    private String[] asiakaskunta_menu = new String[] {"Lapsi", "Aikuinen", "Opiskelija", "Eläkeläinen"};
+    private int valinta;
+    private Henkilo henkilo;
     
-    int valinta;
-    Henkilo henkilo;
     
+    public void setHenkilo(Henkilo henkilo){
+        this.henkilo = henkilo;
+    }
     
     // Päämenussa vaihtoehtoja: 0) Latauspiste, 1) Lipun osto, 2) Luo uusi kortti, 3) Lopeta ohjelman käyttö
     // Palauttaa arvon 0, jos valittu Latauspiste
     // Palauttaa arvon 1, jos valittu Lipun osto
-    // Palauttaa arvon 2, jos valittu Luo uusi kortti
-    // Palauttaa arvon 3, jos valittu Lopeta ohjelman käyttö
+    // Palauttaa arvon 2, jos valittu Hommaa matkakortti
+    // Palauttaa arvon 3, jos valittu Luo uusi henkilö
+    // Palauttaa arvon 4, jos valittu Lopeta ohjelman käyttö
     public int paaMenu(){
         valinta = JOptionPane.showOptionDialog(null, "Valinta: ", "HSL", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, paamenu, paamenu[0]);
         return valinta;
@@ -49,8 +55,8 @@ public class Kayttoliittyma {
             return ladattava_arvo;
             }
             
-            // Aluemenussa 3 vaihtoehtoa: 0) Helsingin sisäinen, 1) Espoon sisäinen, 2) Vantaan sisäinen
-            // 3) Seutu
+                       
+            // Aluemenu:
             // Palauttaa arvon 0, jos valittu Helsingin sisäinen
             // Palauttaa arvon 1, jos valittu Espoon sisäinen
             // Palauttaa arvon 2, jos valittu Vantaan sisäinen
@@ -60,17 +66,32 @@ public class Kayttoliittyma {
                 valinta = JOptionPane.showOptionDialog(null, "Valinta: ", "Latauspiste", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, alue_menu, alue_menu[0]);
                 return valinta;
             }
+            
+            public int kausiMenu(){
+                valinta = Integer.parseInt(JOptionPane.showInputDialog(null, "Kuinka monta vuorokautta haluat ladata kortille kautta?"));
+                return valinta;
+            }
     
     // Henkilön luontimenu
+    // Palauttaa henkilö-olion, joka sisältää käyttäjän syöttämät tiedot
     public Henkilo luoHenkiloMenu(){
         String etunimi;
         String sukunimi;
         String sotu;
+            // asiakaskunta
+            /* 
+            0 = lapsi
+            1 = aikuinen
+            2 = opiskelija
+            3 = eläkeläinen
+            */
+        int asiakaskunta;
         etunimi = JOptionPane.showInputDialog("Luodaan sinulle käyttäjätili \n"
                 + "Anna etunimesi:");
         sukunimi = JOptionPane.showInputDialog("Anna sukunimesi:");
         sotu = JOptionPane.showInputDialog("Anna sosiaaliturvatunnuksesi muodossa PPKKVV-###");
-        return henkilo = new Henkilo(etunimi, sukunimi, sotu); 
+        asiakaskunta = JOptionPane.showOptionDialog(null, "Mihin asiakasryhmään kuulut?", "Asiakasryhmä", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, asiakaskunta_menu, asiakaskunta_menu[1]);
+        return henkilo = new Henkilo(etunimi, sukunimi, sotu, asiakaskunta); 
     }
     
     // Lipunostomenu
@@ -86,8 +107,25 @@ public class Kayttoliittyma {
         valinta = JOptionPane.showOptionDialog(null, "Valinta", "Osta lippu", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, lippu_menu, lippu_menu[0]);
         return valinta;
     }
-
+    
+    // Luo uusi matkakortti menu
+    // Palauttaa
+    /*
+    0 = Liittää aktiivisen henkilön
+    1 = Peruuta
+    */
+    public int hommaaMatkakorttiMenu(){
+        valinta = JOptionPane.showOptionDialog(null, "Hanki matkakortti henkilölle" +henkilo.getEtunimi() +" " +henkilo.getSukunimi(), "Valinta", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, luo_matkakortti_menu , luo_matkakortti_menu[0]);
+        return valinta;
+    }
+    
+    // Matkakorttimenussa, jos henkilöllä on jo kortti olemassa
+    public void korttiOnJoOlemassa(){
+        JOptionPane.showMessageDialog(null, "Sinulla on jo matkakortti!");
+    }
+    
     public void virheViesti(){
         JOptionPane.showMessageDialog(null, "Tapahtuma ei onnistunut.", null, JOptionPane.ERROR_MESSAGE);
     }
+    
 }
