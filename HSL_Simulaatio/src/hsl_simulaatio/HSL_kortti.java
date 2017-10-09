@@ -41,6 +41,39 @@ public class HSL_kortti {
         // palauttaa kauden keston päivinä
     }
     
+    
+    public String getKokonimi (){
+        return tili.getKokonimi();
+    }
+    
+    public String getAlueStr(){
+        switch (tili.getAlue()){
+            case 0:
+                return "Helsinki";
+            case 1:
+                return "Espoo";
+            case 2:
+                return "Vantaa";
+            case 3:
+                return "Seutu";            
+        }
+        return null;
+    }
+    
+    public String getAsiakaskuntaStr(){
+        switch (tili.getAsiakaskunta()){
+            case 0:
+                return "Lapsi";
+            case 1:
+                return "Aikuinen";
+            case 2:
+                return "Opiskelija";
+            case 3:
+                return "Eläkeläinen";            
+        }
+        return null;
+    }
+    
     public int getAsiakaskunta(){
         return tili.getAsiakaskunta();
         // palauttaa asiakaskunnan
