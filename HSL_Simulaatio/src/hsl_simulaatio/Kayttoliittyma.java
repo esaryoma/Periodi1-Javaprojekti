@@ -13,13 +13,15 @@ import javax.swing.*;
 public class Kayttoliittyma {
     
     private String[] paamenu = new String[] {"Latauspiste", "Lipun osto", "Hommaa matkakortti", "Luo uusi henkilö", "Lopeta ohjelman käyttö"};
-    private String[] latauspiste_menu = new String[] {"Lataa kortille arvoa", "Lataa kortille kautta", "Peruuta"};
+    private String[] latauspiste_menu = new String[] {"Lataa kortille arvoa", "Lataa kortille kautta", "Kortin tiedot", "Peruuta"};
     private String[] alue_menu = new String[] {"Helsingin sisäinen", "Espoon sisäinen", "Vantaan sisäinen", "Seutu", "Peruuta"};
     private String[] lippu_menu = new String[] {"Helsingin sisäinen", "Espoon sisäinen", "Vantaan sisäinen", "Seutu", "Peruuta"};
     private String[] luo_matkakortti_menu = new String[] {"Luo", "Peruuta"};
     private String[] asiakaskunta_menu = new String[] {"Lapsi", "Aikuinen", "Opiskelija", "Eläkeläinen"};
     private int valinta;
     private Henkilo henkilo;
+    private HSL_kortti omaMatkakortti;
+    private HSL_lukija lukija;
     
     
     public void setHenkilo(Henkilo henkilo){
