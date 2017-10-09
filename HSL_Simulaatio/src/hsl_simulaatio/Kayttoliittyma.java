@@ -128,4 +128,11 @@ public class Kayttoliittyma {
         JOptionPane.showMessageDialog(null, "Tapahtuma ei onnistunut.", null, JOptionPane.ERROR_MESSAGE);
     }
     
+    public void kortinTiedot(HSL_kortti kortti){
+        JOptionPane.showMessageDialog(null, "Nimi: " + kortti.getKokonimi() 
+                                        + "\nArvoa: " + kortti.getArvo()+" €\nKautta jäljellä: "
+                                        +kortti.getKausi()+ " päivää\nKauden alue: "+kortti.getAlueStr()
+                                        +"\nAsiakaskunta: "+kortti.getAsiakaskuntaStr());
+    }
+    
 }
