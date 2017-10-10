@@ -1,4 +1,3 @@
-
 package hsl_simulaatio;
 
 import javax.swing.JOptionPane;
@@ -80,10 +79,11 @@ public class HSL {
                 case 1: 
                     // Bussi classista haetaan lukijalta maksutietoja riippuen
                     // käyttäjän asiakaskunnasta etc.
+                    
                     if (omaTili.getMatkakorttiHommattu()==1){
                     bussi.nouseKyytiin(omaMatkakortti);
                     } else                        
-                        kayttis.eiKorttia();                                          
+                        kayttis.eiKorttia();                        
                     break;
                 
                 //PÄÄMENU --> LUO UUSI KORTTI    
@@ -113,13 +113,6 @@ public class HSL {
                 default: JOptionPane.showMessageDialog(null, "Vituiks män");
                     break;
             }
-        } while (paa_menun_valinta != 4);
-        
-        
-        
-        
-        
-        
-    }
-    
+        } while (paa_menun_valinta != 4);        
+    }    
 }
