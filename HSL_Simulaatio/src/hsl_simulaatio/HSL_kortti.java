@@ -6,6 +6,7 @@ public class HSL_kortti {
     
     // Muuttujat
     HSL_tili tili;
+    Kayttoliittyma kayttis;
     
     
     // Parametriton konstruktori
@@ -53,7 +54,9 @@ public class HSL_kortti {
             case 2:
                 return "Vantaa";
             case 3:
-                return "Seutu";            
+                return "Seutu"; 
+            case 4:
+                return "-";
         }
         return null;
     }
@@ -116,6 +119,13 @@ public class HSL_kortti {
         return 4;
     }
     
+    public boolean tarkistaKausi(){
+        if (tili.getKausi() > 0){
+            return true;
+        } else
+        return false;
+    }
+    
     // Ostoksen yhteydessä tarkistetaan onko tilillä tarpeeksi arvoa
     public boolean maksa(double vahennys){
         if(tili.getArvo() < vahennys){ // jos tilillä ei tarpeksi arvoa, vähennystä ei tapahdu
@@ -125,5 +135,5 @@ public class HSL_kortti {
             tili.setArvo(tili.getArvo() - vahennys); // jos arvoa löytyy, vähennys tehdään
             return true;
         }    
-        }
     }
+}
