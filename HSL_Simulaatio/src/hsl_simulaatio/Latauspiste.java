@@ -11,6 +11,8 @@ public class Latauspiste {
     Kayttoliittyma kayttis = new Kayttoliittyma();
     HSL_kortti omaMatkakortti = new HSL_kortti();
     int valinta = 0;
+    int alue_valinta = 0;
+   
     
     
     public HSL_kortti teeValinta(HSL_kortti omaMatkakortti){
@@ -32,13 +34,13 @@ public class Latauspiste {
                         
                         // Ladatan kortille kautta tietyllä alueella
                         // Kortilla voi olla kautta kerrallaan vain yhdellä alueella
-                        case 1: valinta = kayttis.alueMenu();
+                        case 1: alue_valinta = kayttis.alueMenu();
                                 // 0 = Helsinki
                                 // 1 = Espoo
                                 // 2 = Vantaa
                                 // 3 = Seutu
                                 // 4 = Peruuta
-                                if (valinta < 4){
+                                if (alue_valinta < 4){
                                     // Jos käyttäjä aikoo vaihtaa kauden aluetta
                                     // häntä varoitetaan asiasta.
 /* Alueella ei väliä, jos kausi on 0*/  if (omaMatkakortti.getAlue() == valinta || omaMatkakortti.getKausi() <= 0){
@@ -51,7 +53,7 @@ public class Latauspiste {
                                                 // 1 = Ei, ei tuhota vanhaa kautta
                                                 switch(valinta){
                                                 case 0:
-                                                    omaMatkakortti.setAlue(valinta);
+                                                    omaMatkakortti.setAlue(alue_valinta);
                                                     valinta = kayttis.kausiMenu();
                                                     omaMatkakortti.setKausi(valinta);
                                                     break;
