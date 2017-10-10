@@ -44,7 +44,7 @@ public class HSL_lukija {
     public boolean tarkistaKaupunki(){
         if (this.kaupunki == kortti.tarkistaKaupunki()){
             return true;
-        } else if (kortti.tarkistaKaupunki()==3){
+        } else if (kortti.tarkistaKaupunki() == 3){
             return true;
         } else {
             return false;
