@@ -1,4 +1,9 @@
-
+/*
+Tänne laitetaan tietoja, kuten:
+- Arvo kortilla
+- Kauden vyöhyke
+- Kauden kesto
+ */
 package hsl_simulaatio;
 
 
@@ -43,11 +48,6 @@ public class HSL_tili {
         // setteri, joka kertoo kuinka monta päivää (int) kautta 
     }
     
-    public void setAsiakasluokka(int asiakas){
-        this.asiakaskunta = asiakas;
-        // asettaa asiakaskuntaa vastaavan kokonaisluvun
-    }
-    
     public void setMatkakorttiHommattu(){
         matkakortti_hommattu = 1;
     }
@@ -58,8 +58,14 @@ public class HSL_tili {
         // 1 = on hommattu
     }
     
+    
     public String getKokonimi(){
         return henkilo.toString();
+    }
+    
+    public void setAsiakaskunta(int asiakas){
+        this.asiakaskunta = asiakas;
+        // asettaa asiakaskuntaa vastaavan kokonaisluvun
     }
     
     public double getArvo(){
@@ -78,13 +84,12 @@ public class HSL_tili {
     }
     
     public int getAsiakaskunta(){
-        return this.henkilo.getAsiakasluokka();
-        // palauttaa asiakasluokka
+        return this.asiakaskunta;
+        // palauttaa asiakaskunnan
     }
     
-     public void vahenna(double raha){
+    public void vahenna(double raha){
         this.arvo -= raha;
     }
     
 }
-
