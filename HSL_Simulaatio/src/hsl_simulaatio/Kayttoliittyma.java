@@ -160,5 +160,12 @@ public class Kayttoliittyma {
         return valinta;
         // Palauttaa 0 = Kyllä (tuhotaan aikaisempi kausi), 1 = Ei (peruuta)
     }
+    public void kausimatka(){
+        JOptionPane.showMessageDialog(null, "Kausi riittää matkaan.");
+    }
+    
+    public void eiKorttia(){
+        JOptionPane.showMessageDialog(null, "Et voi nousta bussiin ilman korttia.");
+    }
 
 }
