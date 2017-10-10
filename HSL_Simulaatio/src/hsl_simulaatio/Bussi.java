@@ -31,6 +31,10 @@ public class Bussi {
                 // Näytetään käyttäjälle hinta ja kysytään onko ok
                 // Palauttaa 0 = OK, 1 = Peruuta
                 // Valinta tallennetaan muuttujaan valinta
+            if (omaMatkakortti.getAlue()== valinta || omaMatkakortti.getAlue()== 3 && omaMatkakortti.getKausi()>0){
+                kayttis.kausimatka();
+                break;
+            } else {    
                 valinta = kayttis.hyvaksyHinta(omaMatkakortti, lukija);
                 switch(valinta){
                     case 0: 
@@ -43,11 +47,18 @@ public class Bussi {
                     
                 }
                 break;
+            }
+                
                         
             case 1: // Espoon sisäinen
+                lukija.setKaupunki(valinta);
                 // Näytetään käyttäjälle hinta ja kysytään onko ok
                 // Palauttaa 0 = OK, 1 = Peruuta
                 // Valinta tallennetaan muuttujaan valinta
+                if (omaMatkakortti.getAlue()== valinta || omaMatkakortti.getAlue()== 3 && omaMatkakortti.getKausi()>0){
+                kayttis.kausimatka();
+                break;
+            } else {
                 valinta = kayttis.hyvaksyHinta(omaMatkakortti, lukija);
                 switch(valinta){
                     case 0: 
@@ -60,11 +71,17 @@ public class Bussi {
                     
                 }
                 break;
+            }
                         
             case 2: // Vantaan sisäinen
+                lukija.setKaupunki(valinta);
                 // Näytetään käyttäjälle hinta ja kysytään onko ok
                 // Palauttaa 0 = OK, 1 = Peruuta
                 // Valinta tallennetaan muuttujaan valinta
+                if (omaMatkakortti.getAlue()== valinta || omaMatkakortti.getAlue()== 3 && omaMatkakortti.getKausi()>0){
+                kayttis.kausimatka();
+                break;
+            } else {
                 valinta = kayttis.hyvaksyHinta(omaMatkakortti, lukija);
                 switch(valinta){
                     case 0: 
@@ -74,13 +91,19 @@ public class Bussi {
                         
                     case 1:
                         break;
-                    
                 }
+                break;
+            }
                         
             case 3: // Seutu
+                lukija.setKaupunki(valinta);
                 // Näytetään käyttäjälle hinta ja kysytään onko ok
                 // Palauttaa 0 = OK, 1 = Peruuta
                 // Valinta tallennetaan muuttujaan valinta
+                if (omaMatkakortti.getAlue()== valinta && omaMatkakortti.getKausi()>0){
+                kayttis.kausimatka();
+                break;
+            } else {
                 valinta = kayttis.hyvaksyHinta(omaMatkakortti, lukija);
                 switch(valinta){
                     case 0: 
@@ -92,6 +115,8 @@ public class Bussi {
                         break;
                     
                 }
+                    break;
+            }    
                        
             case 4: // Peruuta
                 break;
