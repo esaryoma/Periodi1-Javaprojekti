@@ -1,4 +1,3 @@
-
 package hsl_simulaatio;
 
 import javax.swing.JOptionPane;
@@ -43,9 +42,10 @@ public class Latauspiste {
                                 if (alue_valinta < 4){
                                     // Jos käyttäjä aikoo vaihtaa kauden aluetta
                                     // häntä varoitetaan asiasta.
-/* Alueella ei väliä, jos kausi on 0*/  if (omaMatkakortti.getAlue() == valinta || omaMatkakortti.getKausi() <= 0){
-                                        omaMatkakortti.setAlue(valinta);
-                                        omaMatkakortti.setKausi(omaMatkakortti.getKausi() + kayttis.kausiMenu());
+                                    /* Alueella ei väliä, jos kausi on 0*/  
+                                    if (omaMatkakortti.getAlue() == alue_valinta || omaMatkakortti.getKausi() <= 0){
+                                            omaMatkakortti.setAlue(alue_valinta);
+                                            omaMatkakortti.setKausi(omaMatkakortti.getKausi() + kayttis.kausiMenu());
                                     }
                                     else {
                                         valinta = kayttis.tuhoaKausiVaroitus();
