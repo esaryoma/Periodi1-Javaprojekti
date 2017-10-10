@@ -80,9 +80,10 @@ public class HSL {
                 case 1: 
                     // Bussi classista haetaan lukijalta maksutietoja riippuen
                     // käyttäjän asiakaskunnasta etc.
+                    if (omaTili.getMatkakorttiHommattu()==1){
                     bussi.nouseKyytiin(omaMatkakortti);
-                
-                        
+                    } else                        
+                        kayttis.eiKorttia();                                          
                     break;
                 
                 //PÄÄMENU --> LUO UUSI KORTTI    
