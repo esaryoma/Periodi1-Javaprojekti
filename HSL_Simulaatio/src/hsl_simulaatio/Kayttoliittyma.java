@@ -118,7 +118,7 @@ public class Kayttoliittyma {
     1 = Peruuta
     */
     public int hommaaMatkakorttiMenu(){
-        valinta = JOptionPane.showOptionDialog(null, "Hanki matkakortti henkilölle" +henkilo.getEtunimi() +" " +henkilo.getSukunimi(), "Valinta", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, luo_matkakortti_menu , luo_matkakortti_menu[0]);
+        valinta = JOptionPane.showOptionDialog(null, "Hanki matkakortti henkilölle " +henkilo.getEtunimi() +" " +henkilo.getSukunimi(), "Valinta", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, luo_matkakortti_menu , luo_matkakortti_menu[0]);
         return valinta;
     }
     
@@ -136,7 +136,7 @@ public class Kayttoliittyma {
         this.lukija = lukija;
         // Kysytaan onko hinta ok?
         // 0 = Kyllä, 1 = Ei
-        valinta = JOptionPane.showOptionDialog(null, "Olet " +omaMatkakortti.getAsiakaskuntaStr() +" , joten hintasi on" +lukija.getHinta() +", hyväksytäänkö?", "Hyväksy maksu", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, kylla_ei_menu , kylla_ei_menu[0]);
+        valinta = JOptionPane.showOptionDialog(null, "Olet " +omaMatkakortti.getAsiakaskuntaStr() +", joten hintasi on " +lukija.getHinta() +" €, hyväksytäänkö?", "Hyväksy maksu", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, kylla_ei_menu , kylla_ei_menu[0]);
         return valinta;       
     }
     
